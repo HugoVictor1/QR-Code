@@ -16,7 +16,7 @@ formulario.addEventListener('submit', function(event) {
   console.log("Nome:", nome);
 
   if (nome == 'S@M20442ti') {
-    window.location.href = "file:///C:/Users/victo/OneDrive/%C3%81rea%20de%20Trabalho/qr_code_charleson.html"
+    location.replace("qr_code_charleson.html")
   }
 
 });
