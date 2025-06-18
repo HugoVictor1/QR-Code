@@ -22,6 +22,10 @@ formulario.addEventListener('submit', function(event) {
     } else {
       console.log("A página foi carregada diretamente (sem referrer).");
     }
+
+    if (referrerURL  == 'https://qr.me-qr.com/IyHVoosN')  {
+        console.log(referrerURL)
+    }
   }
 
 
