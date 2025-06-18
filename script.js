@@ -23,9 +23,9 @@ formulario.addEventListener('submit', function(event) {
       console.log("A página foi carregada diretamente (sem referrer).");
     }
 
-    if (referrerURL  == 'https://qr.me-qr.com/IyHVoosN')  {
-        alert(referrerURL)
-    }
+    
+    alert(referrerURL)
+    
   }
 
 
