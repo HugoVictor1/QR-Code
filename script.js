@@ -24,7 +24,7 @@ formulario.addEventListener('submit', function(event) {
     }
 
     if (referrerURL  == 'https://qr.me-qr.com/IyHVoosN')  {
-        console.log(referrerURL)
+        alert(referrerURL)
     }
   }
 
