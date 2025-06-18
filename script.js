@@ -18,8 +18,10 @@ formulario.addEventListener('submit', function(event) {
 
   if (nome == 'S@M20442ti') {
     
-    if (params.get("utm_source") === "qr") {
-    alert("Usuário veio por QR Code!");
+    if (params.get("utm_nome") === "victor") {
+      alert("Usuário é Victor!");
+    }else {
+      alert("Usuário é Charlesson!");
     }
   }
 
