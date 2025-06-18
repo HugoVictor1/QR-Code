@@ -13,12 +13,13 @@ formulario.addEventListener('submit', function(event) {
 
   console.log("Dados do formulário:", dadosFormulario);
 
-  const nome = formData.get('nome');
+  const senha = formData.get('senha');
 
   const nomeInt = params.get("utm_nome")
 
-  if (nome == 'S@M20442ti') {
+  if (senha == 'S@M20442ti') {
     location.replace(`qr_code_${nomeInt}.html`);
+    senha.reset()
   }
 
 });
