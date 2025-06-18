@@ -17,8 +17,10 @@ formulario.addEventListener('submit', function(event) {
   console.log("Nome:", nome);
 
   if (nome == 'S@M20442ti') {
-    if (referrerURL == 'https://qr.me-qr.com/GDHdAsbf') {
-      location.replace("qr_code_charleson.html")
+    if (referrerURL) {
+      console.log("A página foi carregada a partir de:", referrerURL);
+    } else {
+      console.log("A página foi carregada diretamente (sem referrer).");
     }
   }
 
