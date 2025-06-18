@@ -20,13 +20,13 @@ formulario.addEventListener('submit', function(event) {
     
     switch (params.get("utm_nome")) {
       case "victor":
-        alert("Usuário é Victor!");
+        location.replace("qr_code_victor.html");
       break;
       case "charlesson":
-        alert("Usuário é Charlesson!");
+        location.replace("qr_code_charleson.html");
       break;
       default:
-      alert("Maquina não encontrada")
+      alert("Maquina não encontrada");
       break;
     }
     
