@@ -3,6 +3,7 @@ const formulario = document.getElementById('meuFormulario');
 formulario.addEventListener('submit', function(event) {
   event.preventDefault(); // Impede o envio padrão do formulário
 
+  const referrerURL = document.referrer;
   const formData = new FormData(formulario);
   const dadosFormulario = {};
 
@@ -16,7 +17,11 @@ formulario.addEventListener('submit', function(event) {
   console.log("Nome:", nome);
 
   if (nome == 'S@M20442ti') {
-    location.replace("qr_code_charleson.html")
+    if (referrerURL == 'https://qr.me-qr.com/GDHdAsbf') {
+      location.replace("qr_code_charleson.html")
+    }
   }
+
+
 
 });
