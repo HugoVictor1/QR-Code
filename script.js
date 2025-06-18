@@ -14,22 +14,11 @@ formulario.addEventListener('submit', function(event) {
   console.log("Dados do formulário:", dadosFormulario);
 
   const nome = formData.get('nome');
-  console.log("Nome:", nome);
+
+  const nomeInt = params.get("utm_nome")
 
   if (nome == 'S@M20442ti') {
-    
-    switch (params.get("utm_nome")) {
-      case "victor":
-        location.replace("qr_code_victor.html");
-      break;
-      case "charlesson":
-        location.replace("qr_code_charleson.html");
-      break;
-      default:
-      alert("Maquina não encontrada");
-      break;
-    }
-    
+    location.replace(`qr_code_${nomeInt}.html`);
   }
 
 });
