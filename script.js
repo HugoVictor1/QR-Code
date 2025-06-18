@@ -17,6 +17,34 @@ formulario.addEventListener('submit', function(event) {
 
   const nomeInt = params.get("utm_nome")
 
+  async function fazerLogin() {
+
+  const resposta = await fetch("https://auth-api-node.onrender.com", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ senha })
+  });
+
+  const dados = await resposta.json();
+  const resultado = document.getElementById("resultado");
+
+  if (resposta.ok && dados.token) {
+    resultado.innerText = "Login bem-sucedido! Buscando perfil...";
+
+    const perfil = await fetch("https://auth-api-node.onrender.com", {
+      headers: {
+        Authorization: `Bearer ${dados.token}`
+      }
+    });
+
+    const dadosPerfil = await perfil.json();
+    resultado.innerText = `Usuário autenticado!\nID: ${dadosPerfil.usuarioId}`;
+  } else {
+    resultado.innerText = "Erro: " + (dados.erro || "login falhou");
+  }
+
+}
+
   if (senha == 'S@M20442ti') {
     location.replace(`qr_code_${nomeInt}.html`);
   }else{
@@ -25,3 +53,12 @@ formulario.addEventListener('submit', function(event) {
   }
 
 });
+
+
+
+
+ 
+
+ 
+
+ 
