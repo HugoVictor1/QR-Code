@@ -18,11 +18,18 @@ formulario.addEventListener('submit', function(event) {
 
   if (nome == 'S@M20442ti') {
     
-    if (params.get("utm_nome") === "victor") {
-      alert("Usuário é Victor!");
-    }else {
-      alert("Usuário é Charlesson!");
+    switch (params.get("utm_nome")) {
+      case "victor":
+        alert("Usuário é Victor!");
+      break;
+      case "charlesson":
+        alert("Usuário é Charlesson!");
+      break;
+      default:
+      alert("Maquina não encontrada")
+      break;
     }
+    
   }
 
 });
