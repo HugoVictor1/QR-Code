@@ -20,9 +20,8 @@ formulario.addEventListener('submit', function(event) {
   if (senha == 'S@M20442ti') {
     location.replace(`qr_code_${nomeInt}.html`);
   }else{
-    senha.reset()
+    document.getElementById('senha').value='';
     alert("Senha master incorreta")
   }
-
 
 });
