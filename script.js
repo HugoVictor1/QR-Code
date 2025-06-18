@@ -3,7 +3,7 @@ const formulario = document.getElementById('meuFormulario');
 formulario.addEventListener('submit', function(event) {
   event.preventDefault(); // Impede o envio padrão do formulário
 
-  const referrerURL = document.referrer;
+  const params = new URLSearchParams(window.location.search);
   const formData = new FormData(formulario);
   const dadosFormulario = {};
 
@@ -17,17 +17,10 @@ formulario.addEventListener('submit', function(event) {
   console.log("Nome:", nome);
 
   if (nome == 'S@M20442ti') {
-    if (referrerURL) {
-      console.log("A página foi carregada a partir de:", referrerURL);
-    } else {
-      console.log("A página foi carregada diretamente (sem referrer).");
+    
+    if (params.get("utm_source") === "qr") {
+    alert("Usuário veio por QR Code!");
     }
-
-    
-    alert(referrerURL)
-    
   }
-
-
 
 });
