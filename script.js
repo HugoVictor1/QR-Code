@@ -1,58 +1,52 @@
-const formulario = document.getElementById('meuFormulario');
-          
-formulario.addEventListener('submit', function(event) {
-  event.preventDefault(); // Impede o envio padrão do formulário
+    // 🔧 Configuração do Firebase
+    const firebaseConfig = {
+	    apiKey: "AIzaSyCH1Qor5428omiUDARz8zCvVYs8Lm0rp1o",
+      authDomain: "qrcode-8c3d7.firebaseapp.com",
+      projectId: "qrcode-8c3d7",
+      storageBucket: "qrcode-8c3d7.firebasestorage.app",
+      messagingSenderId: "787431670871",
+      appId: "1:787431670871:web:6441686766090be047cf12"
+    };
 
-  const params = new URLSearchParams(window.location.search);
-  const formData = new FormData(formulario);
-  const dadosFormulario = {};
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-  for (const [chave, valor] of formData.entries()) {
-    dadosFormulario[chave] = valor;
-  }
+    // 📝 Cadastro
+    function cadastrar() {
+      const email = document.getElementById("Email").value;
+      const senha = document.getElementById("Senha").value;
+      auth.createUserWithEmailAndPassword(email, senha)
+        .then(() => alert("Cadastro realizado!"))
+        .catch(e => alert("Erro: " + e.message));
+    }
 
-  console.log("Dados do formulário:", dadosFormulario);
+    // 🔐 Login
+    function logar() {
+      const email = document.getElementById("loginEmail").value;
+      const senha = document.getElementById("loginSenha").value;
+      auth.signInWithEmailAndPassword(email, senha)
+        .then(() => {
+          document.getElementById("conteudo").style.display = "block";
+          alert("Login realizado!");
+        })
+        .catch(e => alert("Erro: " + e.message));
+    }
 
-  const senha = formData.get('senha');
+    // 🚪 Logout
+    function logout() {
+      auth.signOut()
+        .then(() => {
+          document.getElementById("conteudo").style.display = "none";
+          alert("Logout feito!");
+        });
+    }
 
-  const nomeInt = params.get("utm_nome")
-
-  async function fazerLogin() {
-
-  const resposta = await fetch("https://auth-api-node.onrender.com", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ senha })
-  });
-
-  const dados = await resposta.json();
-  const resultado = document.getElementById("resultado");
-
-  if (resposta.ok && dados.token) {
-    resultado.innerText = "Login bem-sucedido! Buscando perfil...";
-
-    const perfil = await fetch("https://auth-api-node.onrender.com", {
-      headers: {
-        Authorization: `Bearer ${dados.token}`
-      }
+    // 👀 Verifica se está logado ao carregar
+    auth.onAuthStateChanged(user => {
+      document.getElementById("conteudo").style.display = user ? "block" : "none";
     });
 
-    const dadosPerfil = await perfil.json();
-    resultado.innerText = `Usuário autenticado!\nID: ${dadosPerfil.usuarioId}`;
-  } else {
-    resultado.innerText = "Erro: " + (dados.erro || "login falhou");
-  }
 
-}
-
-  if (senha == 'S@M20442ti') {
-    location.replace(`qr_code_${nomeInt}.html`);
-  }else{
-    document.getElementById('senha').value='';
-    alert("Senha master incorreta")
-  }
-
-});
 
 
 
