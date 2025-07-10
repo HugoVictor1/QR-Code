@@ -24,12 +24,6 @@ const params      = new URLSearchParams(window.location.search);
 const linkAnterior= params.get("prev"); // "1", "2", ou null
 const nomeInt = params.get("utm_nome")
 
-// Divide por “/” e filtra entradas vazias
-const partes = linkAnterior.split("/").filter(Boolean);
-
-// Pega o último item do array
-const ultimaParte = partes.pop();
-
 console.log(nomeInt)
 
 // 4) Funções globais de login/logout
