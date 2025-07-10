@@ -33,17 +33,21 @@ window.logar = ev => {
     .then(userCred => {
       console.log("✔️ Login OK:", userCred.user);
       document.getElementById("conteudo").style.display = "block";
-      console.log(linkAnterior)
+
+      if (nomeInt == "victor") { alert("Victor") }
+      if (nomeInt == "jonata") { alert("jonatan") }
+      if (nomeInt == "charlesson") { alert("charles") }
+
       // redireciona conforme o prev
-    if (linkAnterior === "https://qr.me-qr.com/l/victor") {   // `qr_code_${nomeInt}.html`);
+    if (linkAnterior === "https://qr.me-qr.com/l/victor") {
       location.replace(`qr_code_victor.html`);
     }
-    else if (linkAnterior === "https://qr.me-qr.com/l/jonata") {  // `qr_code_${nomeInt}.html`); 
+    else if (linkAnterior === "https://qr.me-qr.com/l/jonata") {
       window.location.href = "qr_code_jonata.html";
-      location.replace(`qr_code_jonatan.html`);
+      location.replace(`qr_code_victor.html`);
     }
     else {
-      location.replace(`qr_code_renan.html`);
+      location.replace(`qr_code_victor.html`);
     }
     })
     .catch(err => {
