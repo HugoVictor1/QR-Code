@@ -24,8 +24,6 @@ const params      = new URLSearchParams(window.location.search);
 const linkAnterior= params.get("prev"); // "1", "2", ou null
 const nomeInt = params.get("utm_nome")
 
-console.log(linkAnterior)
-
 // 4) Funções globais de login/logout
 window.logar = ev => {
   ev.preventDefault();
@@ -36,10 +34,17 @@ window.logar = ev => {
       console.log("✔️ Login OK:", userCred.user);
       document.getElementById("conteudo").style.display = "block";
 
-      if (nomeInt.get("utm_nome") === "victor") {
-        alert("Usuário é Victor!");
-      }
-  
+      // redireciona conforme o prev
+    if (linkAnterior === "https://qr.me-qr.com/l/victor") {   // `qr_code_${nomeInt}.html`);
+      location.replace(`qr_code_victor.html`);
+    }
+    else if (linkAnterior === "https://qr.me-qr.com/l/jonata") {  // `qr_code_${nomeInt}.html`); 
+      window.location.href = "qr_code_jonata.html";
+      location.replace(`qr_code_jonatan.html`);
+    }
+    else {
+      location.replace(`qr_code_renan.html`);
+    }
     })
     .catch(err => {
       console.error("❌ Erro:", err.code, err.message);
