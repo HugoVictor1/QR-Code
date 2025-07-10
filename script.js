@@ -34,21 +34,9 @@ window.logar = ev => {
       console.log("✔️ Login OK:", userCred.user);
       document.getElementById("conteudo").style.display = "block";
 
-      if (nomeInt == "victor") { alert("Victor") }
-      if (nomeInt == "jonata") { alert("jonatan") }
-      if (nomeInt == "charlesson") { alert("charles") }
-
-      // redireciona conforme o prev
-    if (linkAnterior === "https://qr.me-qr.com/l/victor") {
-      location.replace(`qr_code_victor.html`);
-    }
-    else if (linkAnterior === "https://qr.me-qr.com/l/jonata") {
-      window.location.href = "qr_code_jonata.html";
-      location.replace(`qr_code_victor.html`);
-    }
-    else {
-      location.replace(`qr_code_victor.html`);
-    }
+      // redireciona conforme o nome
+      location.replace(`qr_code_${nomeInt}.html`);
+  
     })
     .catch(err => {
       console.error("❌ Erro:", err.code, err.message);
