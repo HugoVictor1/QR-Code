@@ -40,7 +40,7 @@ window.logar = ev => {
 
       if (params.get("utm_nome") === "victor") {
         alert("Usuário é Victor!");
-      {
+      }
 
       //location.replace(`qr_code_${ultimaParte}.html`);
    
