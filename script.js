@@ -20,8 +20,9 @@ const firebaseConfig = {
 // 3) Inicialize o Firebase
 const app  = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const params      = new URLSearchParams(window.location.search);
+const linkAnterior= params.get("prev"); // "1", "2", ou null
 const nomeInt = params.get("utm_nome")
-const params = new URLSearchParams(window.location.search);
 
 // 4) Funções globais de login/logout
 window.logar = ev => {
@@ -32,9 +33,18 @@ window.logar = ev => {
     .then(userCred => {
       console.log("✔️ Login OK:", userCred.user);
       document.getElementById("conteudo").style.display = "block";
-      location.replace(`qr_code_${nomeInt}.html`);
-      email.reset()
-      senha.reset()
+
+      // redireciona conforme o prev
+    if (linkAnterior === "https://hugovictor1.github.io/QR-Code//?utm_source=qr&utm_medium=offline&utm_nome=victor") {
+      location.replace(`qr_code_victor.html`);
+    }
+    else if (linkAnterior === "https://qr.me-qr.com/https://hugovictor1.github.io/QR-Code//?utm_source=qr&utm_medium=offline&utm_nome=jonata") {
+      window.location.href = "qr_code_jonata.html";
+      location.replace(`qr_code_victor.html`);
+    }
+    else {
+      location.replace(`qr_code_victor.html`);
+    }
     })
     .catch(err => {
       console.error("❌ Erro:", err.code, err.message);
