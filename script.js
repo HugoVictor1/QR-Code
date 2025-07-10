@@ -4,7 +4,6 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-
 // Exemplo de login
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
