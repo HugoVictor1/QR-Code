@@ -35,10 +35,10 @@ window.logar = ev => {
       document.getElementById("conteudo").style.display = "block";
 
       // redireciona conforme o prev
-    if (linkAnterior === "https://hugovictor1.github.io/QR-Code//?utm_source=qr&utm_medium=offline&utm_nome=victor") {
+    if (linkAnterior === "https://qr.me-qr.com/l/victor") {
       location.replace(`qr_code_victor.html`);
     }
-    else if (linkAnterior === "https://qr.me-qr.com/https://hugovictor1.github.io/QR-Code//?utm_source=qr&utm_medium=offline&utm_nome=jonata") {
+    else if (linkAnterior === "https://qr.me-qr.com/l/jonata") {
       window.location.href = "qr_code_jonata.html";
       location.replace(`qr_code_victor.html`);
     }
