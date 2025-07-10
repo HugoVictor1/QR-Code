@@ -1,14 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "sua-api-key",
-  authDomain: "seu-auth-domain",
-  // outros parâmetros...
-};
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
 
 // Exemplo de login
 signInWithEmailAndPassword(auth, email, password)
