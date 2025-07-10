@@ -1,7 +1,23 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.x.y/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.x.y/firebase-auth.js";
 
 console.log("Script carregado");
+
+fetch("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCH1Qor5428omiUDARz8zCvVYs8Lm0rp1o", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    email: "victor.silva@samuraitratores.com.br",
+    password: "123456",
+    returnSecureToken: true
+  })
+})
+.then(res => res.json())
+.then(data => console.log("Firebase login OK:", data))
+.catch(err => console.error("Erro via fetch:", err));
 
 // 🔧 Configuração do Firebase
 const firebaseConfig = {
@@ -22,11 +38,15 @@ window.logar = function () {
   const senha = document.getElementById("loginSenha").value;
 
   signInWithEmailAndPassword(auth, email, senha)
-    .then(() => {
-      document.getElementById("conteudo").style.display = "block";
-      alert("Login realizado!");
-    })
-    .catch(e => alert("Erro: " + e.message));
+  .then((userCredential) => {
+    console.log("Login bem-sucedido:", userCredential);
+    document.getElementById("conteudo").style.display = "block";
+    alert("Login realizado com sucesso!");
+  })
+  .catch(e => {
+    console.error("Erro no login:", e);
+    alert("Erro: " + e.message);
+  });
 }
 
 // 🚪 Logout
