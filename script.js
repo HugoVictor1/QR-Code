@@ -14,16 +14,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// 📝 Cadastro
-function cadastrar() {
-  const email = document.getElementById("Email").value;
-  const senha = document.getElementById("Senha").value;
-
-  createUserWithEmailAndPassword(auth, email, senha)
-    .then(() => alert("Cadastro realizado!"))
-    .catch(e => alert("Erro: " + e.message));
-}
-
 // 🔐 Login
 function logar() {
   const email = document.getElementById("loginEmail").value;
