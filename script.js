@@ -33,7 +33,7 @@ window.logar = ev => {
     .then(userCred => {
       console.log("✔️ Login OK:", userCred.user);
       document.getElementById("conteudo").style.display = "block";
-console.loc(linkAnterior)
+      console.log(linkAnterior)
       // redireciona conforme o prev
     if (linkAnterior === "https://qr.me-qr.com/l/victor") {   // `qr_code_${nomeInt}.html`);
       location.replace(`qr_code_victor.html`);
