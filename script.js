@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
+console.log("Script carregado");
+
 // 🔧 Configuração do Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCH1Qor5428omiUDARz8zCvVYs8Lm0rp1o",
@@ -15,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // 🔐 Login
-function logar() {
+window.logar = function () {
   const email = document.getElementById("loginEmail").value;
   const senha = document.getElementById("loginSenha").value;
 
@@ -28,7 +30,7 @@ function logar() {
 }
 
 // 🚪 Logout
-function logout() {
+window.logout = function () {
   signOut(auth)
     .then(() => {
       document.getElementById("conteudo").style.display = "none";
