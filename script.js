@@ -1,4 +1,27 @@
-    // 🔧 Configuração do Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "sua-api-key",
+  authDomain: "seu-auth-domain",
+  // outros parâmetros...
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Exemplo de login
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Usuário logado
+    const user = userCredential.user;
+    console.log("Usuário logado:", user);
+  })
+  .catch((error) => {
+    console.error("Erro de autenticação:", error);
+  });
+    
+   // 🔧 Configuração do Firebase
     const firebaseConfig = {
 	    apiKey: "AIzaSyCH1Qor5428omiUDARz8zCvVYs8Lm0rp1o",
       authDomain: "qrcode-8c3d7.firebaseapp.com",
