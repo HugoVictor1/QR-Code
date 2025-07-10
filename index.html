@@ -12,18 +12,21 @@
     <div class="page">
 
         <form id="meuFormulario">
-
             <h1>Autenticação</h1>
             <p>Digite seu acesso no campo abaixo.</p>
             <label for="senha">Senha:</label>
             <input type="email" id="Email" placeholder="Email">
             <input type="password" id="senha" placeholder="Senha"><br>
-          
             <button onclick="logout()" id="btn">Enviar</button>
         </form>
-        
+
+        <!-- 👇 Adicionado exatamente como você pediu -->
+        <div id="conteudo" style="display: none;">
+            <h2>Área protegida</h2>
+            <p>Você está logado!</p>
+            <button onclick="logout()">Logout</button>
+        </div>
+
     </div>
 </body>
 </html>
-
-
