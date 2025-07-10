@@ -24,7 +24,7 @@ const params      = new URLSearchParams(window.location.search);
 const linkAnterior= params.get("prev"); // "1", "2", ou null
 const nomeInt = params.get("utm_nome")
 
-console.log(nomeInt)
+console.log(linkAnterior)
 
 // 4) Funções globais de login/logout
 window.logar = ev => {
