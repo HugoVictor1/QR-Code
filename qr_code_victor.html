@@ -73,14 +73,20 @@
 				</h2>				  
 			</div>	
 			<script>
-				
-    			window.onload = function () {
+
+    		    window.onload = function() {
+      			// 3) Lê o nome
       			const nome = localStorage.getItem("nome");
-
       			console.log("Nome recebido:", nome);
-				};
-			</script>
 
-			
+      			const el = document.getElementsByClassName("nome")[0];
+      			if (el && nome) {
+      			  el.textContent = "Escreve " + nome;
+      			  el.style.display = "block";
+      			} else if (!nome) {
+      			  console.warn("Não achei 'nome' no localStorage");
+      			}
+    			};
+			</script>
     	</body>
     </html>
