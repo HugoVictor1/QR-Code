@@ -2,83 +2,100 @@
     <head>
         <title>Gerado pelo Autumn Code Maker</title>
         <meta charset="UTF-8">
-        <style>
-          
-        </style>
-        <script>
-          
-        </script>
-    </head>
-    	<body>	
-			<div class="daniel">
-				<h2>
-					Dell Vostro 15 3510<br>
-					CPB3BR3<br>
-					Core i5-1135G7 2.40GHz<br>
-					Ram 8 GB<br>
-					SSD 256GB<br>
-					Windows 11 Home <br>
-					KES Samurai_colabs	<br>
-					-Daniel <br>
-					1704
-				</h2>
-			</div>		
-			<div class="victor">
-				<h2>
-					Dell Vostro 15 3510<br>
-					CPB3BR3<br>
-					Core i5-1135G7 2.40GHz<br>
-					Ram 8 GB<br>
-					SSD 256GB<br>
-					Windows 11 Home <br>
-					KES Samurai_colabs	<br>
-					-victor <br>
-			
-					1704
-				</h2>
-			</div>
-			<div class="jonata">
-				<h2>
-					Dell Vostro 15 3510<br>
-					CPB3BR3<br>
-					Core i5-1135G7 2.40GHz<br>
-					Ram 8 GB<br>
-					SSD 256GB<br>
-					Windows 11 Home <br>
-					KES Samurai_colabs	<br>
-				
-					-jonata <br>
-					1704
-				</h2>
-			</div>
-			<div class="Charlesson">
-				<h2>
-					Dell Vostro 15 3510<br>
-					CPB3BR3<br>
-					Core i5-1135G7 2.40GHz<br>
-					Ram 8 GB<br>
-					SSD 256GB<br>
-					Windows 11 Home <br>
-					KES Samurai_colabs	<br>
-					-Daniel Silva<br>
-					-Charlesson <br>
-					1704
-				</h2>
-			</div>
-			<script>
-				window.onload = function() {
-				  	// 3) Lê o nome
-				  	const nome = localStorage.getItem("nome");
-				  	console.log("Nome recebido:", nome);
-					const el = document.getElementsByClassName("nome")[0];
-
-					if (el.classList.contains(nome)) {
-    				  el.style.display = "block";
-    				} else {
-    				  console.warn("Esta .nome não tem a classe", nome);
-    				}
-				};
-			  </script>		  
+		<style>
+			/* Esconde todas as divs de nome até o script rodar */
+			.daniel,
+			.victor,
+			.jonata,
+			.Charlesson {
+			  display: none;
+			}
+		</style>
+		</head>
+		<body>  
+		  <div class="daniel">
+			<h2>
+			  Dell Vostro 15 3510<br>
+			  CPB3BR3<br>
+			  Core i5-1135G7 2.40GHz<br>
+			  Ram 8 GB<br>
+			  SSD 256GB<br>
+			  Windows 11 Home <br>
+			  KES Samurai_colabs  <br>
+			  -Daniel <br>
+			  1704
+			</h2>
+		  </div>    
+		
+		  <div class="victor">
+			<h2>
+			  Dell Vostro 15 3510<br>
+			  CPB3BR3<br>
+			  Core i5-1135G7 2.40GHz<br>
+			  Ram 8 GB<br>
+			  SSD 256GB<br>
+			  Windows 11 Home <br>
+			  KES Samurai_colabs  <br>
+			  -victor <br>
+			  1704
+			</h2>
+		  </div>
+		
+		  <div class="jonata">
+			<h2>
+			  Dell Vostro 15 3510<br>
+			  CPB3BR3<br>
+			  Core i5-1135G7 2.40GHz<br>
+			  Ram 8 GB<br>
+			  SSD 256GB<br>
+			  Windows 11 Home <br>
+			  KES Samurai_colabs  <br>
+			  -jonata <br>
+			  1704
+			</h2>
+		  </div>
+		
+		  <div class="Charlesson">
+			<h2>
+			  Dell Vostro 15 3510<br>
+			  CPB3BR3<br>
+			  Core i5-1135G7 2.40GHz<br>
+			  Ram 8 GB<br>
+			  SSD 256GB<br>
+			  Windows 11 Home <br>
+			  KES Samurai_colabs  <br>
+			  -Daniel Silva<br>
+			  -Charlesson <br>
+			  1704
+			</h2>
+		  </div>
+		
+		  <script>
+			window.onload = function() {
+			  // 1) Lê o nome gravado
+			  const nome = localStorage.getItem("nome");
+			  console.log("Nome recebido:", nome);
+		
+			  // 2) Seleciona todas as divs diretas do body
+			  const todasDivs = document.querySelectorAll("body > div");
+			  let encontrou = false;
+		
+			  // 3) Exibe somente aquela cuja classe corresponda ao nome
+			  todasDivs.forEach(div => {
+				if (nome && div.classList.contains(nome)) {
+				  div.style.display = "block";
+				  encontrou = true;
+				} else {
+				  div.style.display = "none";
+				}
+			  });
+		
+			  // 4) Se não encontrou nenhuma correspondente
+			  if (!encontrou) {
+				console.warn(`Nenhuma <div> com a classe "${nome}" encontrada.`);
+			  }
+			};
+		  </script>	  
 
     	</body>
     </html>
