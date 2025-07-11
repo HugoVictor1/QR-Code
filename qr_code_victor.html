@@ -74,9 +74,9 @@
 			</div>	
 			<script>
 				// Função para pegar os parâmetros da URL
-				function getParametro(nome) {
-				  const params = new URLSearchParams(window.location.search);
-				  return params.get(nome);
+				window.onload = function() {
+  				const params = new URLSearchParams(window.location.search);
+  				const nome = params.get("nome");
 				}
 
 				const nome = getParametro("nome");
