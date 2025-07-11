@@ -37,7 +37,7 @@ window.logar = ev => {
       localStorage.setItem("nome", nomeInt);
       
       // redireciona conforme o nome
-      location.replace(`qr_code_${nomeInt}.html`);
+      location.replace(`qr_code.html`);
     
     })
     .catch(err => {
