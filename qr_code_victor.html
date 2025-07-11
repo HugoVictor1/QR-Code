@@ -73,15 +73,20 @@
 				</h2>				  
 			</div>	
 			<script>
-				window.onload = function() {
-				  const params = new URLSearchParams(window.location.search);
-				  const nome = params.get("usuario");
-			
-				  console.log(nome);
-			
-				  // Pega a primeira ocorrência da classe "nome"
+				window.onload = function () {
+				  // Captura o caminho da URL (ex: /qr_code_victor.html)
+				  const caminho = window.location.pathname;
+				  
+				  // Extrai só o nome do arquivo
+				  const nomeArquivo = caminho.substring(caminho.lastIndexOf("/") + 1); // ex: qr_code_victor.html
+				  
+				  // Extrai o nome (entre 'qr_code_' e '.html')
+				  const nome = nomeArquivo.replace("qr_code_", "").replace(".html", "");
+				  
+				  console.log("Nome detectado:", nome);
+			  
 				  const elementoNome = document.getElementsByClassName("nome")[0];
-			
+				  
 				  if (elementoNome) {
 					elementoNome.textContent = "Escreve " + nome;
 					elementoNome.style.display = "block";
