@@ -34,7 +34,7 @@ window.logar = ev => {
       console.log("✔️ Login OK:", userCred.user);
       //document.getElementsByClassName("usuario").style.display = "block";
 
-      localStorage.setItem("nome", "victor");
+      localStorage.setItem("nome", "jonata");
       
       // redireciona conforme o nome
       location.replace(`qr_code_${nomeInt}.html`);
