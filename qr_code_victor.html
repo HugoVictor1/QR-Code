@@ -73,18 +73,20 @@
 				</h2>				  
 			</div>	
 			<script>
-				// Função para pegar os parâmetros da URL
 				window.onload = function() {
-  				const params = new URLSearchParams(window.location.search);
-  				const nome = params.get("nome");
-				}
-
-				const nome = getParametro("nome");
-
-				console.log(nome)
-
-				document.getElementsByClassName("nome").style.display = "block";
-				
+				  const params = new URLSearchParams(window.location.search);
+				  const nome = params.get("usuario");
+			
+				  console.log(nome);
+			
+				  // Pega a primeira ocorrência da classe "nome"
+				  const elementoNome = document.getElementsByClassName("nome")[0];
+			
+				  if (elementoNome) {
+					elementoNome.textContent = "Escreve " + nome;
+					elementoNome.style.display = "block";
+				  }
+				};
 			</script>
     	</body>
     </html>
