@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerar e Baixar QR Code</title>
+  <script src="https://unpkg.com/qrcodejs2@0.0.2/qrcode.min.js"></script>
+  <style>
+    #qrcode { margin-top: 1rem; }
+    #download { 
+      display: none; 
+      margin-top: 1rem;
+      padding: .5rem 1rem;
+      background: #28a745;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <label for="url">URL:</label>
+    <input id="url" type="url" placeholder="Cole seu link aqui">
+    <button id="btnGerar">Criar QR</button>
+  </div>
+
+  <div id="qrcode"></div>
+  <a id="download">Baixar QR Code</a>
+
+  <script>
+    const inputUrl    = document.getElementById('url');
+    const btnGerar    = document.getElementById('btnGerar');
+    const qrContainer = document.getElementById('qrcode');
+    const linkDownload= document.getElementById('download');
+
+    btnGerar.addEventListener('click', () => {
+      const texto = inputUrl.value.trim();
+      if (!texto) {
+        alert('Por favor, insira uma URL válida.');
+        return;
+      }
+
+      // Limpa QR anterior
+      qrContainer.innerHTML = '';
+      linkDownload.style.display = 'none';
+
+      // Gera o QR Code
+      new QRCode(qrContainer, {
+        text: texto,
+        width: 200,
+        height: 200,
+        colorDark: "#000",
+        colorLight: "#fff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+
+      // Aguarda um “tick” para o QRCode.js inserir o <img> ou <canvas>
+      setTimeout(() => {
+        // Tenta achar imagem (QRCode.js normalmente joga um <img> com base64)
+        let img = qrContainer.querySelector('img');
+        
+        // Se for canvas, converte em dataURL também
+        if (!img) {
+          const canvas = qrContainer.querySelector('canvas');
+          if (canvas) {
+            img = new Image();
+            img.src = canvas.toDataURL('image/png');
+          }
+        }
+
+        if (img && img.src) {
+          // Configura o link de download
+          linkDownload.href      = img.src;
+          linkDownload.download  = 'qrcode.png';
+          linkDownload.style.display = 'inline-block';
+        } else {
+          console.error('Não consegui encontrar o QR gerado para download.');
+        }
+      }, 50);
+    });
+  </script>
+</body>
+</html>
