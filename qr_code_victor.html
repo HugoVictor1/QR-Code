@@ -2,12 +2,6 @@
     <head>
         <title>Gerado pelo Autumn Code Maker</title>
         <meta charset="UTF-8">
-        <style>
-          
-        </style>
-        <script>
-          
-        </script>
     </head>
     	<body>
 			<div class="usuario victor" style="display:none;">
@@ -78,5 +72,17 @@
 					-6378 
 				</h2>				  
 			</div>	
+			<script>
+				// Função para pegar os parâmetros da URL
+				function getParametro(nome) {
+				  const params = new URLSearchParams(window.location.search);
+				  return params.get(nome);
+				}
+
+				const nome = getParametro("nome");
+
+				document.getElementsByClassName("nome").style.display = "block";
+				
+			</script>
     	</body>
     </html>
