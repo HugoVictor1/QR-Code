@@ -38,8 +38,7 @@ window.logar = ev => {
       
       // redireciona conforme o nome
       location.replace(`qr_code_${nomeInt}.html`);
-      
-  
+    
     })
     .catch(err => {
       console.error("❌ Erro:", err.code, err.message);
