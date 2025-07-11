@@ -32,7 +32,7 @@ window.logar = ev => {
   signInWithEmailAndPassword(auth, email, senha)
     .then(userCred => {
       console.log("✔️ Login OK:", userCred.user);
-      document.getElementById("conteudo").style.display = "block";
+      document.getElementsByClassName("usuario").style.display = "block";
 
       // redireciona conforme o nome
       location.replace(`qr_code_${nomeInt}.html`);
